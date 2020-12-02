@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ClassComponent from './ClassComponent';
 import MyPureComponent from './MyPureComponent';
 /**
- * Pure components does shallow comparioson of object before redering on the screen.
+ * Pure components does shallow comparison of object before redering on the screen.
  */
 export default class Parent extends Component {
     constructor() {

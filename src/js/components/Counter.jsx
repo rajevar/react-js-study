@@ -21,13 +21,13 @@ export class Counter extends Component {
     return this.state.count === 0 ? "Zero" : this.state.count;
   }
 
-  divStyle = () => {
-    return { margin: "3px" };
+  divStyle = {
+    margin: "3px",
   };
 
   render() {
     return (
-      <div style={this.divStyle()}>
+      <div style={this.divStyle}>
         <button
           onClick={this.handleIncrement}
           className="btn btn-secondary btn-md"
