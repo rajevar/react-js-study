@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ChildClass from './ChildClass'
 import ChildFunComp from './ChildFunComp'
 
-export default class HookPaernt extends Component {
+export default class HookParent extends Component {
     constructor() {
         super();
         this.state = {

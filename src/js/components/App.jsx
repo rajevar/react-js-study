@@ -10,7 +10,8 @@ import RenderProps from "./hoc/RenderProps";
 import HookCounter from "./hooks/HookCounter";
 import UserStateHook from "./hooks/UserStateHook";
 import UseEffectHook from "./hooks/UseEffectHook";
-import HookPaernt from "./hooks/HookPaernt";
+import DataFetching from "./hooks/fetch/DataFetching";
+import HookPaernt from "./hooks/HookParent";
 
 const fun = (c) => console.log(`Calling Parent function from ${c} component.`);
 const App = () =>
@@ -31,6 +32,8 @@ const App = () =>
         <h2>Articles</h2>
         <List />
         <Hello parentFunction={fun} />
+        <br />
+        <DataFetching />
       </div>
       <div className="col-md-4 offset-md-1 pm-3">
         <h2>Add a new article</h2>
