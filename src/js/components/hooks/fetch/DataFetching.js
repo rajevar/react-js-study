@@ -1,37 +1,53 @@
 import Axios from 'axios';
-import React, {useState, useEffect }from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 
 function DataFetching() {
     const [id, setId] = useState(1);
     const [post, setPost] = useState({});
+    const [btn, setBtn] = useState(false);
+
+    // useEffect(() => {
+    //     // fetchData(setPosts,10);
+    //     console.log(`useEffect : ${id}`);
+    //     axios
+    //         .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    //         .then(res => {
+    //             setPost(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.error("Err > " + err);
+    //         })
+    // }, [btn])
 
     useEffect(() => {
-        // fetchData(setPosts,10);
-        const fetchData = () => {
-            axios
-                .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-                .then(res => {
-                    setPost(res.data)
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        };
-        fetchData();
+        axios
+            .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+            .then(res => {
+                console.log(res)
+                setPost(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [btn])
 
-    }, [id])
-
-    function doSomething(e) {
-        console.log("blahhh..");
-        setId(e.target.value)
+    const handleChange = event => {
+        console.log(" --- onChange --- " + event.target.value);
+        setId(event.target.value);
     }
+    const fetchData = () => {
+        console.log("clicked.." + id);
+        setBtn(!btn);
+    }
+
     return (
         <div>
-        <div>Hello Axios!</div>
-        <input type="text" class="form-input" value={id} onChange={e => doSomething(e)}></input>
-        <br /> {post.id} | {post.title}
+            <div>Hello Axios!</div>
+            <input type="text" size="4" className="form-input" value={id} onChange={handleChange}></input>
+            <button className="btn btn-sm btn-info ml-2" onClick={fetchData} > AxO</button>
+            <br /> {post.id} | {post.title}
         </div>
 
     )
