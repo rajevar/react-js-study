@@ -13,7 +13,11 @@ import UseEffectHook from "./hooks/UseEffectHook";
 import DataFetching from "./hooks/fetch/DataFetching";
 import HookPaernt from "./hooks/HookParent";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import CounterReducer from "./hooks/reducer/CounterReducer";
+=======
+import ComtextHook from "./context/ComtextHook";
+>>>>>>> ca4aa8d7186902d8efe904d668231b94f3aa78bb
 =======
 import ComtextHook from "./context/ComtextHook";
 >>>>>>> ca4aa8d7186902d8efe904d668231b94f3aa78bb
@@ -40,9 +44,14 @@ const App = () =>
         <br />
         <DataFetching />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <br />
         <CounterReducer />
 
+=======
+        {/* <DF /> */}
+        <ComtextHook />
+>>>>>>> ca4aa8d7186902d8efe904d668231b94f3aa78bb
 =======
         {/* <DF /> */}
         <ComtextHook />
