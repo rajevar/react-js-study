@@ -1,12 +1,25 @@
-import axios from 'axios';
-import React, {useState, useEffect }from 'react'
-import fetchData from './fetchData'
+import Axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 function DataFetching() {
     const [id, setId] = useState(1);
     const [post, setPost] = useState({});
-    const [btnClick, setBtnClick] = useState(true);
+    const [btn, setBtn] = useState(false);
+
+    // useEffect(() => {
+    //     // fetchData(setPosts,10);
+    //     console.log(`useEffect : ${id}`);
+    //     axios
+    //         .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    //         .then(res => {
+    //             setPost(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.error("Err > " + err);
+    //         })
+    // }, [btn])
 
     const fetchJson = () => {
         fetchData(id).then(data => {
@@ -15,25 +28,25 @@ function DataFetching() {
     }
     useEffect(() => {
         axios
-        .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-        .then(result => setPost(result.data))
-        .catch(err => console.error(err))
+            .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+            .then(res => setPost(res.data))
+            .catch(err => console.log(err))
+    }, [btn])
 
-    }, [btnClick])
+    const handleChange = event => {
+        console.log(" --- onChange --- " + event.target.value);
+        setId(event.target.value);
+    }
+    const fetchData = () => {
+        console.log("clicked.." + id);
+        setBtn(!btn);
+    }
 
-    function doSomething(e) {
-        console.log("blahhh..");
-        setId(e.target.value)
-    }
-    const doClick = e => {
-        console.log("..clicked..");
-        setBtnClick(!btnClick);
-    }
     return (
         <div>
             <div>Hello Axios!</div>
-            <input type="text" className="form-input" value={id} onChange={e => doSomething(e)} size="3"/>
-            <button className="btn btn-sm btn-primary ml-2 mb-2" onClick={doClick}>Fetch</button>
+            <input type="text" size="4" className="form-input" value={id} onChange={handleChange}></input>
+            <button className="btn btn-sm btn-info ml-2" onClick={fetchData} > AxO</button>
             <br /> {post.id} | {post.title}
         </div>
 
