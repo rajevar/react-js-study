@@ -2,7 +2,6 @@ import Axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
 function DataFetching() {
     const [id, setId] = useState(1);
     const [post, setPost] = useState({});
