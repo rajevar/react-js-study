@@ -1,37 +1,40 @@
-import Axios from 'axios';
+import axios from 'axios';
 import React, {useState, useEffect }from 'react'
-import axios from 'axios'
+import fetchData from './fetchData'
 
 
 function DataFetching() {
     const [id, setId] = useState(1);
     const [post, setPost] = useState({});
+    const [btnClick, setBtnClick] = useState(true);
 
+    const fetchJson = () => {
+        fetchData(id).then(data => {
+            console.log(data);
+        })
+    }
     useEffect(() => {
-        // fetchData(setPosts,10);
-        const fetchData = () => {
-            axios
-                .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-                .then(res => {
-                    setPost(res.data)
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-        };
-        fetchData();
+        axios
+        .get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then(result => setPost(result.data))
+        .catch(err => console.error(err))
 
-    }, [id])
+    }, [btnClick])
 
     function doSomething(e) {
         console.log("blahhh..");
         setId(e.target.value)
     }
+    const doClick = e => {
+        console.log("..clicked..");
+        setBtnClick(!btnClick);
+    }
     return (
         <div>
-        <div>Hello Axios!</div>
-        <input type="text" class="form-input" value={id} onChange={e => doSomething(e)}></input>
-        <br /> {post.id} | {post.title}
+            <div>Hello Axios!</div>
+            <input type="text" className="form-input" value={id} onChange={e => doSomething(e)} size="3"/>
+            <button className="btn btn-sm btn-primary ml-2 mb-2" onClick={doClick}>Fetch</button>
+            <br /> {post.id} | {post.title}
         </div>
 
     )

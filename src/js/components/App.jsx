@@ -12,6 +12,7 @@ import UserStateHook from "./hooks/UserStateHook";
 import UseEffectHook from "./hooks/UseEffectHook";
 import DataFetching from "./hooks/fetch/DataFetching";
 import HookPaernt from "./hooks/HookParent";
+import CounterReducer from "./hooks/reducer/CounterReducer";
 
 const fun = (c) => console.log(`Calling Parent function from ${c} component.`);
 const App = () =>
@@ -34,6 +35,9 @@ const App = () =>
         <Hello parentFunction={fun} />
         <br />
         <DataFetching />
+        <br />
+        <CounterReducer />
+
       </div>
       <div className="col-md-4 offset-md-1 pm-3">
         <h2>Add a new article</h2>
