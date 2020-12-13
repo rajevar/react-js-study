@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
+/**
+ * The Effect Hook lets you perform side effects in function components.
+ *  useEffect Hook is componentDidMount, componentDidUpdate, and componentWillUnmount of class component combined.
+ * 
+ *  Child calls React.memo() for memoization
+ */
 function UseEffectHook() {
     const [count, setCount] = useState(0);
     const [ticker, setTicker] = useState(100);

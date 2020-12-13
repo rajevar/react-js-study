@@ -14,6 +14,10 @@ import DataFetching from "./hooks/fetch/DataFetching";
 import HookPaernt from "./hooks/HookParent";
 import CounterReducer from "./hooks/reducer/CounterReducer";
 import ComtextHook from "./context/ComtextHook";
+import ParentComp from "./hooks/callback/ParentComp";
+import CounterMemo from "./hooks/memo/CounterMemo";
+import RefHook from "./hooks/ref/RefHook";
+import CustomHook from "./hooks/custom/CustomHook";
 
 const fun = (c) => console.log(`Calling Parent function from ${c} component.`);
 const App = () =>
@@ -39,12 +43,21 @@ const App = () =>
         <CounterReducer />
         {/* <DF /> */}
         <ComtextHook />
+        <br />
+        <CounterMemo />
+        <br />
+        <RefHook />
+        <br />
+        <CustomHook />
       </div>
       <div className="col-md-4 offset-md-1 pm-3">
         <h2>Add a new article</h2>
         <Form />
         <br />
         <Counters />
+        <br />
+        <ParentComp />
+
       </div>
       {/* <Parent /> */}
       {/* <ErrorComponent>

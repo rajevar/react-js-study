@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Counter } from "./Counter";
 
 export class Counters extends Component {
+
   state = {
     counters: [{ id: 1, value: 1 }, { id: 2, value: 0 }, { id: 3, value: 3 }]
   };
@@ -22,6 +23,7 @@ export class Counters extends Component {
   };
 
   render() {
+    console.log(" ---- Counters class comp ----- ");
     return (
       <div>
         {this.state.counters.map(c => (
